@@ -1,4 +1,4 @@
-FROM docker pull nikolaik/python-nodejs:python3.9-nodejs17-slim
+FROM docker pull nikolaik/python-nodejs:python3.9
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install ffmpeg -y
 COPY . /app/
