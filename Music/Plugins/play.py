@@ -68,6 +68,9 @@ def time_to_seconds(time):
 
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]))
 async def play(_, message: Message):
+    global que
+    global useer
+    await message.delete()
     chat_id = message.chat.id
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
