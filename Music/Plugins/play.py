@@ -291,12 +291,12 @@ async def play(_, message: Message):
             ID5 = (result[4]["id"])
         except Exception as e:
             return await mystic.edit_text(f"Soung Not Found.\n**Possible Reason:**{e}")
-        thumb ="cache/IMG_2.png"
+        thumb ="cache/IMG_boy.png"
         await mystic.delete()   
         buttons = search_markup(ID1, ID2, ID3, ID4, ID5, duration1, duration2, duration3, duration4, duration5, user_id, query)
         hmo = await message.reply_photo(
             photo=thumb, 
-            caption=(f"\n1️⃣ **[{title1[:26]}...](https://www.youtube.com/watch?v={ID1})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n └ ⚡ __Powered by {BOT_NAME}__\n\n2️⃣ **[{title2[:26]}...](https://www.youtube.com/watch?v={ID2})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n └ ⚡ __Powered by {BOT_NAME}__\n\n3️⃣ **[{title3[:26]}...](https://www.youtube.com/watch?v={ID3})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n └ ⚡ __Powered by {BOT_NAME}__\n\n4️⃣ **[{title4[:26]}...](https://www.youtube.com/watch?v={ID4})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n └ ⚡ __Powered by {BOT_NAME}__\n\n5️⃣ **[{title5[:26]}..](https://www.youtube.com/watch?v={ID5})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})\n └ ⚡ __Powered by {BOT_NAME}__\n\n"),    
+            caption=(f"\n1️⃣ **[{title1[:26]}...](https://www.youtube.com/watch?v={ID1})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})\n └ ⚡ __Managed by @fl0werboy__\n\n2️⃣ **[{title2[:26]}...](https://www.youtube.com/watch?v={ID2})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})\n └ ⚡ __Managed by @fl0werboy__\n\n3️⃣ **[{title3[:26]}...](https://www.youtube.com/watch?v={ID3})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})\n └ ⚡ __Managed by @fl0werboy__\n\n4️⃣ **[{title4[:26]}...](https://www.youtube.com/watch?v={ID4})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})\n └ ⚡ __Managed by @fl0werboy__\n\n5️⃣ **[{title5[:26]}..](https://www.youtube.com/watch?v={ID5})**\n ├ 💡 [More Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})\n └ ⚡ __Managed by @fl0werboy__\n\n"),    
             reply_markup=InlineKeyboardMarkup(buttons),
         )  
         disable_web_page_preview=True
