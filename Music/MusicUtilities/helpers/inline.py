@@ -9,11 +9,11 @@ from pyrogram.types import (
 def play_markup(videoid, user_id):
     buttons= [
             [
-                InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​​", url=f"https://t.me/skyzusupport"),
-                InlineKeyboardButton(text="ᴍᴇɴᴜ​", callback_data=f'other {videoid}|{user_id}'),
+                InlineKeyboardButton(text="⚡ sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/boysupport"),
+                InlineKeyboardButton(text="✨ ᴍᴇɴᴜ​", callback_data=f'other {videoid}|{user_id}'),
             ],
             [      
-                InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data=f'close2')
+                InlineKeyboardButton(text="•• ᴄʟᴏsᴇ ••", callback_data=f'close2')
             ],
         ]
     return buttons 
@@ -26,8 +26,8 @@ def others_markup(videoid, user_id):
                 InlineKeyboardButton(text="➕ Group Playlist", callback_data=f'group_playlist {videoid}|{user_id}')
             ],
             [
-                InlineKeyboardButton(text="⬇️ Get Audio", callback_data=f'gets audio|{videoid}|{user_id}'),
-                InlineKeyboardButton(text="⬇️ Get Video", callback_data=f'gets video|{videoid}|{user_id}')
+                InlineKeyboardButton(text="📥 Get Audio", callback_data=f'gets audio|{videoid}|{user_id}'),
+                InlineKeyboardButton(text="🎥 Get Video", callback_data=f'gets video|{videoid}|{user_id}')
             ],
             [
                 InlineKeyboardButton(text="⬅️  Go Back", callback_data=f'goback {videoid}|{user_id}'),
@@ -92,9 +92,9 @@ def search_markup(ID1, ID2, ID3, ID4, ID5, duration1, duration2, duration3, dura
             ],
             [ 
                 
-                InlineKeyboardButton(text="<", callback_data=f'popat 1|{query}|{user_id}'), 
+                InlineKeyboardButton(text="⬅️", callback_data=f'popat 1|{query}|{user_id}'), 
                 InlineKeyboardButton(text="🗑 Close", callback_data=f"ppcl2 smex|{user_id}") ,
-                InlineKeyboardButton(text=">", callback_data=f'popat 1|{query}|{user_id}')             
+                InlineKeyboardButton(text="➡️", callback_data=f'popat 1|{query}|{user_id}')             
             ],
         ]
     return buttons   
@@ -112,9 +112,9 @@ def search_markup2(ID6, ID7, ID8, ID9, ID10, duration6, duration7, duration8, du
             ],
             [ 
                 
-                InlineKeyboardButton(text="<", callback_data=f'popat 2|{query}|{user_id}'), 
+                InlineKeyboardButton(text="⬅️", callback_data=f'popat 2|{query}|{user_id}'), 
                 InlineKeyboardButton(text="🗑 Close", callback_data=f"ppcl2 smex|{user_id}") ,
-                InlineKeyboardButton(text=">", callback_data=f'popat 2|{query}|{user_id}')             
+                InlineKeyboardButton(text="➡️", callback_data=f'popat 2|{query}|{user_id}')             
             ],
         ]
     return buttons 
