@@ -48,7 +48,7 @@ def time_to_seconds(time):
         int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":")))
     )
 
-@Client.on_message(command(["music", "song", "download"]))
+@Client.on_message(command(["m", "s", "d"]))
 async def mpthree(_, message: Message):
     chat_id = message.chat.id
     if message.sender_chat:
