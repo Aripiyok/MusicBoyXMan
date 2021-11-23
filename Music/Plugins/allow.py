@@ -4,7 +4,7 @@ from pyrogram.types import Message
 from Music.MusicUtilities.helpers.filters import command
 from Music.MusicUtilities.database.chats import (get_served_chats, is_served_chat, add_served_chat, get_served_chats, remove_served_chat)  
 
-@app.on_message(filters.command("allow") & filters.user(SUDOERS))
+@app.on_message(filters.command("a") & filters.user(SUDOERS))
 async def blacklist_chat_func(_, message: Message):
     if len(message.command) != 2:
         return await message.reply_text(
@@ -17,7 +17,7 @@ async def blacklist_chat_func(_, message: Message):
     else:
         await message.reply_text("ALREADY IN ALLOWED LIST")
     
-@app.on_message(filters.command("disallow") & filters.user(SUDOERS))
+@app.on_message(filters.command("d") & filters.user(SUDOERS))
 async def whitelist_chat_func(_, message: Message):
     if len(message.command) != 2:
         return await message.reply_text(
@@ -35,7 +35,7 @@ async def whitelist_chat_func(_, message: Message):
       await message.reply_text("Error.")
 
 
-@app.on_message(filters.command("allowedchat") & filters.user(SUDOERS))
+@app.on_message(filters.command("alist") & filters.user(SUDOERS))
 async def blacklisted_chats_func(_, message: Message):
     served_chats = []
     text = "**__Allowed Chats__**\n"
