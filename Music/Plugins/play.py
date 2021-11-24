@@ -124,7 +124,7 @@ async def play(_, message: Message):
     global que
     global useer
     await message.delete()
-    if message.chat.id in DISABLE_GROUPS:
+    chat_id = message.chat.id in DISABLE_GROUPS:
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
     user_id = message.from_user.id
