@@ -66,6 +66,55 @@ def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
+
+@Client.on_message(
+    command("music")
+    & filters.group
+    & ~filters.edited      
+)
+@authorized_users_only
+async def music(_, message: Message):
+    global que
+    global useer
+    await message.delete()
+    global DISABLED_GROUPS
+    try:
+        user_id = message.from_user.id
+    except:
+        return
+    if len(message.command) != 2:
+        await message.delete()
+        await message.reply_text(
+            "**Saya hanya mengenali** `/music on` **dan** `/music off`"
+        )
+        return
+    status = message.text.split(None, 1)[1]
+    if status == "ON" or status == "on" or status == "On":
+        lel = await message.reply("`Processing...`")
+        if not message.chat.id in DISABLED_GROUPS:
+            await lel.edit("**Pemutar Musik Sudah Diaktifkan Di Obrolan Ini**")
+            return
+        DISABLED_GROUPS.remove(message.chat.id)
+        await lel.edit(
+            f"**Pemutar Musik Berhasil Diaktifkan Untuk Pengguna Dalam Obrolan** {message.chat.title}"
+        )
+
+    elif status == "OFF" or status == "off" or status == "Off":
+        lel = await message.reply("`Processing...`")
+        
+        if message.chat.id in DISABLED_GROUPS:
+            await lel.edit("**Pemutar Musik Sudah dimatikan Dalam Obrolan Ini**")
+            return
+        DISABLED_GROUPS.append(message.chat.id)
+        await lel.edit(
+            f"**Pemutar Musik Berhasil Dinonaktifkan Untuk Pengguna Dalam Obrolan** {message.chat.title}"
+        )
+    else:
+        await message.reply_text(
+            "**Saya hanya mengenali** `/music on` **dan** `/music off`"
+        )
+
+
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]))
 async def play(_, message: Message):
     global que
