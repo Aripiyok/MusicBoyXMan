@@ -72,7 +72,6 @@ def time_to_seconds(time):
     & filters.group
     & ~filters.edited      
 )
-@authorized_users_only
 async def music(_, message: Message):
     global que
     global useer
