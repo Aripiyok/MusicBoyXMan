@@ -49,6 +49,10 @@ from pyrogram.types import Message, Audio, Voice
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message)
 flex = {}
 chat_watcher_group = 3
+
+DISABLED_GROUPS = []
+
+
 def time_to_seconds(time):
     stringt = str(time)
     return sum(
