@@ -106,7 +106,7 @@ async def music(_, message: Message):
     elif status == "OFF" or status == "off" or status == "Off":
         lel = await message.reply("`Processing...`")
         
-        if message.chat.id in DISABLED_GROUPS:
+        if message.sender_chat in DISABLE_GROUPS:
             await lel.edit("**Pemutar Musik Sudah dimatikan Dalam Obrolan Ini**")
             return
         DISABLED_GROUPS.append(message.chat.id)
@@ -124,8 +124,8 @@ async def play(_, message: Message):
     global que
     global useer
     await message.delete()
-    chat_id = message.chat.id in DISABLE_GROUPS:
-    if message.sender_chat:
+    chat_id = message.chat.id
+    if message.sender_chat in DISABLE_GROUPS:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
     user_id = message.from_user.id
     chat_title = message.chat.title
