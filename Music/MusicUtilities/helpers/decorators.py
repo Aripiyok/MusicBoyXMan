@@ -3,7 +3,7 @@ from pyrogram import Client
 from pyrogram.types import Message
 
 from Music.config import SUDO_USERS
-from Music.MusicUtilities.helpers.administrator import get_administrators
+from Music.MusicUtilities.helpers.administrator import authorised
 
 
 def errors(func: Callable) -> Callable:
