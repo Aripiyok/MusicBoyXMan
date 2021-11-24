@@ -33,7 +33,7 @@ from Music.MusicUtilities.helpers.ytdl import ytdl_opts
 from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup, play_markup, playlist_markup, audio_markup)
 from Music.MusicUtilities.tgcallsrun import (convert, download)
 from pyrogram import filters
-from typing import Union
+from typing import Dict, List, Union
 from youtubesearchpython import VideosSearch
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 
@@ -250,3 +250,15 @@ async def stop_cmd(_, message):
                 caption=f"<b>__Skipped Voice Chat__</b>\n\n🎥<b>__Started Playing:__</b> {title} \n⏳<b>__Duration:__</b> {duration} \n👤<b>__Requested by:__ </b> {username}",
                 )
                 return
+admins: Dict[int, List[int]] = {}
+
+
+def set(chat_id: int, admins_: List[int]):
+    admins[chat_id] = admins_
+
+
+def get(chat_id: int) -> Union[List[int], bool]:
+    if chat_id in admins:
+        return admins[chat_id]
+
+    return False
