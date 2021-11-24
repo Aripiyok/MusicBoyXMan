@@ -126,7 +126,10 @@ async def play(_, message: Message):
     await message.delete()
     chat_id = message.chat.id
     if message.sender_chat in DISABLE_GROUPS:
-        return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
+        return 
+    lel = await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
+    administrators = await get_administrators(message.sender_chat)
+    chid = message.sender_chat
     user_id = message.from_user.id
     chat_title = message.chat.title
     username = message.from_user.first_name
