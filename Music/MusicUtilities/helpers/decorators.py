@@ -2,7 +2,7 @@ from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
 
-from MusicUtilities.config import SUDO_USERS
+from Music.config import SUDO_USERS
 from MusicUtilities.helpers.admins import get_administrators
 
 
