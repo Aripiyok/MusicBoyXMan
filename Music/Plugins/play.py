@@ -540,8 +540,7 @@ async def startyuplay(_,CallbackQuery):
     else:
         await music_on(chat_id)
         await add_active_chat(chat_id)
-        await music.pytgcalls.join_group_call(
-            chat_id, 
+        callsmusic.pytgcalls.join_group_call(chat_id, file_path) 
             InputStream(
                 InputAudioStream(
                     file,
