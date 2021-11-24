@@ -71,48 +71,6 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
 
-@Client.on_message(
-    command(["music", f"music@{BOT_USERNAME}"])
-    & ~filters.edited
-    & ~filters.bot
-    & ~filters.private
-)
-@authorized_users_only
-async def music_onoff(_, message):
-    global DISABLED_GROUPS
-    try:
-        message.from_user.id
-    except:
-        return
-    if len(message.command) != 2:
-        await message.reply_text(
-            "**• usage:**\n\n `/music on` & `/music off`"
-        )
-        return
-    status = message.text.split(None, 1)[1]
-    message.chat.id
-    if status in ("ON", "on", "On"):
-        lel = await message.reply("`processing...`")
-        if not message.chat.id in DISABLED_GROUPS:
-            await lel.edit("» **music player already turned on.**")
-            return
-        DISABLED_GROUPS.remove(message.chat.id)
-        await lel.edit(f"✅ **music player turned on**\n\n💬 `{message.chat.id}`")
-
-    elif status in ("OFF", "off", "Off"):
-        lel = await message.reply("`processing...`")
-
-        if message.chat.id in DISABLED_GROUPS:
-            await lel.edit("» **music player already turned off.**")
-            return
-        DISABLED_GROUPS.append(message.chat.id)
-        await lel.edit(f"✅ **music player turned off**\n\n💬 `{message.chat.id}`")
-    else:
-        await message.reply_text(
-            "**• usage:**\n\n `/music on` & `/music off`"
-        )
-
-
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]))
 async def play(_, message: Message):
     global que
