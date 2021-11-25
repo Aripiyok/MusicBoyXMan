@@ -58,9 +58,6 @@ async def pause_cmd(_, message):
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account.") 
     permission = "can_manage_voice_chats"
-    m = await adminsOnly(permission, message)
-    if m == 1:
-        return
     checking = message.from_user.mention
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
@@ -76,9 +73,6 @@ async def stop_cmd(_, message):
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account.") 
     permission = "can_manage_voice_chats"
-    m = await adminsOnly(permission, message)
-    if m == 1:
-        return
     checking = message.from_user.mention
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
@@ -113,9 +107,6 @@ async def stop_cmd(_, message):
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account.") 
     permission = "can_manage_voice_chats"
-    m = await adminsOnly(permission, message)
-    if m == 1:
-        return
     checking = message.from_user.mention
     chat_id = message.chat.id
     chat_title = message.chat.title
