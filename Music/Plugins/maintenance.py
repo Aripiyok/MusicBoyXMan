@@ -5,9 +5,9 @@ from Music.MusicUtilities.database.onoff import (is_on_off, add_on, add_off)
 from Music.MusicUtilities.helpers.filters import command
 
 
-@Client.on_message(command("musicoff") & filters.user(SUDOERS))
+@Client.on_message(command("musicupdate") & filters.user(SUDOERS))
 async def smex(_, message):
-    usage = "**Usage:**\n/Musicp [enable|disable]"
+    usage = "**Usage:**\n/Musicupdate [enable|disable]"
     if len(message.command) != 2:
         return await message.reply_text(usage)
     chat_id = message.chat.id
