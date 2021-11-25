@@ -120,7 +120,6 @@ async def stop_cmd(_, message):
             await music.pytgcalls.leave_group_call(chat_id)
             return  
         else:
-            if str(finxx) != "raw":   
                 mystic = await message.reply_text("Music is currently playing Playlist...\n\nDownloading Next Music From Playlist....")
                 url = (f"https://www.youtube.com/watch?v={afk}")
                 try:
