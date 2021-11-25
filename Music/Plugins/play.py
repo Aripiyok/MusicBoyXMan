@@ -90,6 +90,7 @@ def time_to_seconds(time):
 @authorized_users_only
 async def music_onoff(_, message):
     global DISABLED_GROUPS
+    await message.delete()
     try:
         message.from_user.id
     except:
