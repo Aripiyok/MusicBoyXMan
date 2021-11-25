@@ -140,9 +140,9 @@ async def play(_, message: Message):
     if await is_on_off(1):
         LOG_ID = LOG_GROUP_ID
         if int(chat_id) != int(LOG_ID):
-            return await message.reply_text(f"Bot is under Maintenance. Sorry for the inconvenience!")
-        return await message.reply_text(f"Bot is under Maintenance. Sorry for the inconvenience!")
-    a = await app.get_chat_member(chid, wew, message.chat.id , BOT_ID)
+            return await message.reply_text(f"Maaf bot sedang dalam perbaikan!✨!")
+        return await message.reply_text(f"Maaf bot sedang dalam perbaikan!✨!")
+    a = await app.get_chat_member(message.chat.id , BOT_ID)
     if a.status != "administrator":
         await message.reply_text(f"💡  To use me, I need to be an\n Administrator with the following\na**permissions:**\n\n» ❌ __Manage Video Chats__\n» ❌ __Delete Messages__\n» ❌ __Add Users__\n» ❌ __Ban Users__\n\nThen **type** `/reload`")
         return
