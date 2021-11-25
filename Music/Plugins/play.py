@@ -123,13 +123,13 @@ async def music_onoff(_, message):
 
 
 
-
-@Client.on_message(command(["play", f"play@{BOT_USERNAME}"]))
-async def play(_, message: Message):
+@Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters
+sync def play(_, message: Message):
     global que
     global useer
     await message.delete()
-    chat_id = message.chat.id
+    If message.chat.id in DISABLED_GROUPS:
+        return
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
     user_id = message.from_user.id
