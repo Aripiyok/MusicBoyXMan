@@ -133,7 +133,7 @@ async def play(_, message: Message):
         return
     if message.sender_chat:
         return 
-        await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.
+        return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")
     user_id = message.from_user.id
     chat_title = message.chat.title
     username = message.from_user.first_name
