@@ -143,7 +143,6 @@ async def play(_, message: Message):
             return await message.reply_text(f"Bot is under Maintenance. Sorry for the inconvenience!")
         return await message.reply_text(f"Bot is under Maintenance. Sorry for the inconvenience!")
     a = await app.get_chat_member(chid, wew, message.chat.id , BOT_ID)
-        if administrator == message.from_user.id:
     if a.status != "administrator":
         await message.reply_text(f"💡  To use me, I need to be an\n Administrator with the following\na**permissions:**\n\n» ❌ __Manage Video Chats__\n» ❌ __Delete Messages__\n» ❌ __Add Users__\n» ❌ __Ban Users__\n\nThen **type** `/reload`")
         return
