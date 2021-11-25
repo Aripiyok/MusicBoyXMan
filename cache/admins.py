@@ -1,7 +1,5 @@
 from typing import Dict, List
 
-from Music.config import admins
-
 admins: Dict[int, List[int]] = {}
 
 
