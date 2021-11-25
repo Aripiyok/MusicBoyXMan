@@ -120,7 +120,6 @@ async def stop_cmd(_, message):
             await music.pytgcalls.leave_group_call(chat_id)
             return         
             await message.reply_text("Music is currently playing Playlist...\n\nDownloading Next Music From Playlist....")
-                try:
                     with yt_dlp.YoutubeDL(ytdl_opts) as ytdl:
                         x = ytdl.extract_info(url, download=False)
                 except Exception as e:
