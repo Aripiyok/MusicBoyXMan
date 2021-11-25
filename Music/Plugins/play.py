@@ -130,8 +130,9 @@ sync def play(_, message: Message):
     await message.delete()
     If message.chat.id in DISABLED_GROUPS:
         return
-    if message.sender_chat:
+    lel = await message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
+    administrators = await get_administrators(message.chat)
     user_id = message.from_user.id
     chat_title = message.chat.title
     username = message.from_user.first_name
@@ -141,7 +142,10 @@ sync def play(_, message: Message):
         if int(chat_id) != int(LOG_ID):
             return await message.reply_text(f"Bot is under Maintenance. Sorry for the inconvenience!")
         return await message.reply_text(f"Bot is under Maintenance. Sorry for the inconvenience!")
-    a = await app.get_chat_member(message.chat.id , BOT_ID)
+    a = await app.get_chat_member(chid, wew, message.chat.id , BOT_ID)
+    except:
+        for administrator in administrators:
+            if administrator == message.from_user.id:
     if a.status != "administrator":
         await message.reply_text(f"💡  To use me, I need to be an\n Administrator with the following\na**permissions:**\n\n» ❌ __Manage Video Chats__\n» ❌ __Delete Messages__\n» ❌ __Add Users__\n» ❌ __Ban Users__\n\nThen **type** `/reload`")
         return
