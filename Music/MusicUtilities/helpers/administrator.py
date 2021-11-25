@@ -3,6 +3,10 @@ from functools import wraps
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
 from Music import app, SUDOERS
+from typing import List
+
+from pyrogram.types import Chat
+
 from cache.admins import get as gett
 from cache.admins import set
 
