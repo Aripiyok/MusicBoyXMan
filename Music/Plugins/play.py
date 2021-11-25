@@ -125,7 +125,7 @@ async def music_onoff(_, message):
 
 
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]) & other_filters
-sync def play(_, message: Message):
+async def play(_, message: Message):
     global que
     global useer
     await message.delete()
