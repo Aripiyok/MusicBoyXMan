@@ -20,6 +20,7 @@ from pytgcalls.types.input_stream import InputStream
 from sys import version as pyver
 from Music import dbb, app, BOT_USERNAME, BOT_NAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
 from Music.MusicUtilities.helpers.administrator import get_administrators
+from Music.MusicUtilities.helpers.decorators import authorized_users_only
 from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, ASS_ACC)
 from Music.MusicUtilities.database.queue import (get_active_chats, is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
 from Music.MusicUtilities.database.onoff import (is_on_off, add_on, add_off)
