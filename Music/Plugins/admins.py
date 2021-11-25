@@ -2,7 +2,7 @@ from asyncio import QueueEmpty
 from pyrogram import Client, filters
 from pyrogram.types import Message, Audio, Voice
 from Music import app
-from Music.MusicUtilities.helpers.decorators import errors
+from Music.MusicUtilities.helpers.decorators import authorized_users_only, errors
 from Music.MusicUtilities.helpers.filters import command, other_filters
 from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
 from pyrogram.types import (
@@ -22,6 +22,7 @@ import shutil
 from time import time
 import time as sedtime
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
+from cache.admins import set
 from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
 from pyrogram.types import Message
