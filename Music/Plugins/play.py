@@ -40,6 +40,16 @@ from Music.MusicUtilities.helpers.thumbnails import gen_thumb
 from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
 from Music.MusicUtilities.helpers.ytdl import ytdl_opts 
 from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup2, search_markup)
+
+#next
+
+chat_id = None
+DISABLED_GROUPS = []
+useer = "NaN"
+
+
+
+
 from pyrogram import filters
 from typing import Union
 import subprocess
