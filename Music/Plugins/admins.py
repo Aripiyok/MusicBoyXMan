@@ -95,7 +95,6 @@ async def stop_cmd(_, message):
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account.") 
     permission = "can_manage_voice_chats"
-        return
     checking = message.from_user.mention
     chat_id = message.chat.id
     if await is_active_chat(chat_id):
