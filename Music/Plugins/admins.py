@@ -120,7 +120,6 @@ async def stop_cmd(_, message):
             await music.pytgcalls.leave_group_call(chat_id)
             return  
         else:
-            afk = get(chat_id)['file']
             f1 = (afk[0])
             f2 = (afk[1])
             f3 = (afk[2])
