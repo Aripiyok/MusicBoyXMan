@@ -39,18 +39,7 @@ from Music.MusicUtilities.helpers.logger import LOG_CHAT
 from Music.MusicUtilities.helpers.thumbnails import gen_thumb
 from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
 from Music.MusicUtilities.helpers.ytdl import ytdl_opts 
-from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup2, search_markup)
-
-#next
-
-chat_id = None
-DISABLED_GROUPS = []
-useer = "NaN"
-
-
-
-
-from pyrogram import filters
+from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup2, search_markup)from pyrogram import filters
 from typing import Union
 import subprocess
 from asyncio import QueueEmpty
@@ -60,6 +49,15 @@ from youtubesearchpython import VideosSearch
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import Message, Audio, Voice
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message)
+
+#next
+
+chat_id = None
+DISABLED_GROUPS = []
+useer = "NaN"
+
+
+
 flex = {}
 chat_watcher_group = 3
 def time_to_seconds(time):
