@@ -22,7 +22,7 @@ import shutil
 from time import time
 import time as sedtime
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
-from cache.admins import set
+from cache.admins import admins
 from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
 from pyrogram.types import Message
@@ -38,15 +38,6 @@ from typing import Dict, List, Union
 from youtubesearchpython import VideosSearch
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 
-flex = {}
-
-async def member_permissions(chat_id: int, user_id: int):
-    perms = []
-    member = await app.get_chat_member(chat_id, user_id)
-    if member.can_manage_voice_chats:
-        perms.append("can_manage_voice_chats")
-    return perms
-from Music.MusicUtilities.helpers.administrator import adminsOnly
 
 @app.on_message(filters.command("cleandb"))
 async def stop_cmd(_, message): 
