@@ -119,8 +119,8 @@ async def stop_cmd(_, message):
             await message.reply_text("No more music in __Queue__ \n\nLeaving Voice Chat")
             await music.pytgcalls.leave_group_call(chat_id)
             return  
-    else:
-                mystic = await message.reply_text("Music is currently playing Playlist...\n\nDownloading Next Music From Playlist....")
+    else:        
+         await message.reply_text("Music is currently playing Playlist...\n\nDownloading Next Music From Playlist....")
                 url = (f"https://www.youtube.com/watch?v={afk}")
                 try:
                     with yt_dlp.YoutubeDL(ytdl_opts) as ytdl:
