@@ -132,8 +132,7 @@ async def play(_, message: Message):
     if message.chat.id in DISABLED_GROUPS:
         return
     if message.sender_chat:
-        return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
-    administrators = await get_administrators(message.chat)
+        return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.
     user_id = message.from_user.id
     chat_title = message.chat.title
     username = message.from_user.first_name
