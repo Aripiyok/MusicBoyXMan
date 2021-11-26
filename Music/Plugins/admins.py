@@ -23,7 +23,7 @@ from time import time
 import time as sedtime
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
 from cache.admins import admins
-from Music.MusicUtilities.helpers.administrator import adminsOnly, member_permissions
+from Music.MusicUtilities.helpers.administrator import adminsOnly, get_administrators
 from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
 from pyrogram.types import Message
