@@ -72,13 +72,7 @@ def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
-Client.on_message(
-    command(["music", f"music@{BOT_USERNAME}"])
-    & ~filters.edited
-    & ~filters.bot
-    & ~filters.private
-)
-@adminsOnly
+Client.on_message(command(["music", f"music@{BOT_USERNAME}"]))
 async def music_onoff(_, message):
     permission = "can_manage_voice_chats"
     m = await adminsOnly(permission, message)
