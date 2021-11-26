@@ -29,6 +29,7 @@ from Music.MusicUtilities.database.theme import (_get_theme, get_theme, save_the
 from Music.MusicUtilities.database.assistant import (_get_assistant, get_assistant, save_assistant)
 from Music.config import DURATION_LIMIT, LOG_GROUP_ID
 from Music.MusicUtilities.helpers.decorators import errors
+from Music.MusicUtilities.helpers.administrator import adminsOnly
 from Music.MusicUtilities.helpers.filters import command
 from Music.MusicUtilities.helpers.formatter import convert_seconds_to_minutes
 from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant, ass_det)
@@ -78,7 +79,7 @@ Client.on_message(
     & ~filters.bot
     & ~filters.private
 )
-@authorized_users_only
+@adminsOnly
 async def music_onoff(_, message):
     global DISABLED_GROUPS
     try:
