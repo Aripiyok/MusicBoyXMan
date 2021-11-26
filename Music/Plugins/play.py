@@ -124,8 +124,9 @@ async def play(_, message: Message):
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
     user_id = message.from_user.id
+    chat_id = message.chat.id
     chat_title = message.chat.title
-    username = message.from_user.first_name
+    username = message.from_user.first_name  
     checking = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
     if await is_on_off(1):
         LOG_ID = LOG_GROUP_ID
