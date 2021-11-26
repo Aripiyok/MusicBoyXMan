@@ -134,7 +134,7 @@ async def play(_, message: Message):
     if await is_on_off(1):
         LOG_ID = LOG_GROUP_ID
         if int(chat_id) != int(LOG_ID):
-            return await message.reply_text(f"\n✅**__Bot is under Maintenance.__**\n **__Sorry for the inconvenience!__**")
+            return await message.reply_text(f"\n✅**__Bot is under Maintenance.__**\n✅ `**__Sorry for the inconvenience!__**")
         return await message.reply_text(f"✅**__Bot is under Maintenance.__** Sorry for the inconvenience!")
     a = await app.get_chat_member(message.chat.id , BOT_ID)
     if a.status != "administrator":
