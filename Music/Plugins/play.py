@@ -102,19 +102,19 @@ async def music_onoff(_, message: Message):
             await lel.edit("» **music player already turned on.**")
             return
         DISABLED_GROUPS.remove(message.chat.id)
-        await lel.edit(f"✅ **music player turned on**\n\n💬 `{message.chat.id}`")
+        await lel.edit(f"✅ **__music player turned on__")
 
     elif status in ("OFF", "off", "Off"):
         lel = await message.reply("`processing...`")
 
         if message.chat.id in DISABLED_GROUPS:
-            await lel.edit("» **music player already turned off.**")
+            await lel.edit("» **__music player already turned off__**")
             return
         DISABLED_GROUPS.append(message.chat.id)
-        await lel.edit(f"✅ **music player turned off**\n\n💬 `{message.chat.id}`")
+        await lel.edit(f"✅ **__music player turned off.__**")
     else:
         await message.reply_text(
-            "**• usage:**\n\n `/music on` & `/music off`"
+            "**• » usage:**\n\n `/music on` & `/music off`"
         )
 
 
@@ -134,8 +134,8 @@ async def play(_, message: Message):
     if await is_on_off(1):
         LOG_ID = LOG_GROUP_ID
         if int(chat_id) != int(LOG_ID):
-            return await message.reply_text(f"Bot is under Maintenance. Sorry for the inconvenience!")
-        return await message.reply_text(f"Bot is under Maintenance. Sorry for the inconvenience!")
+            return await message.reply_text(f"✅**__Bot is under Maintenance.__** Sorry for the inconvenience!")
+        return await message.reply_text(f"✅**__Bot is under Maintenance.__** Sorry for the inconvenience!")
     a = await app.get_chat_member(message.chat.id , BOT_ID)
     if a.status != "administrator":
         await message.reply_text(f"💡  To use me, I need to be an\n Administrator with the following\na**permissions:**\n\n» ❌ __Manage Video Chats__\n» ❌ __Delete Messages__\n» ❌ __Add Users__\n» ❌ __Ban Users__\n\nThen **type** `/reload`")
