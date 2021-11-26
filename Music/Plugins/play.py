@@ -78,12 +78,15 @@ Client.on_message(
     & ~filters.bot
     & ~filters.private
 )
-@unauthorised
+
 async def music_onoff(_, message):
-    global DISABLED_GROUPS
-    try:
-        message.from_user.id
-    except:
+    permission = "can_manage_voice_chats"
+    m = await adminsOnly(permission, message)
+    if m == 1:
+        return
+    if message.sender_chat:
+        await message.reply_text("❌ You're an Anonymous Admin!\n\n» Revert back to User Account.")
+    global DISABLED_GROUPS:
         return
     if len(message.command) != 2:
         await message.reply_text(
