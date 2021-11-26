@@ -14,8 +14,8 @@ async def authorised(message):
 async def unauthorised(message: Message):
     chatID = message.chat.id
     text = (
-        "✅MEMBUTUHKAN HAK ADMIN"
-        + f"\n__HUBUNGIN @ADMIN UNTUK MEMBUKA MUSIC__"
+        "✅**__membutuhkan hak @admin__**"
+        + f"\n**__hubungi @admin untuk membuka music__**"
     )
     try:
         await message.reply_text(text)
