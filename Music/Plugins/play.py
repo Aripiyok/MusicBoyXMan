@@ -86,7 +86,6 @@ async def music_onoff(_, message):
         return
     if message.sender_chat:
         await message.reply_text("❌ You're an Anonymous Admin!\n\n» Revert back to User Account.")
-    global DISABLED_GROUPS:
         return
     if len(message.command) != 2:
         await message.reply_text(
