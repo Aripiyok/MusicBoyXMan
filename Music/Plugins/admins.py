@@ -40,6 +40,56 @@ from youtubesearchpython import VideosSearch
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 
 
+
+from asyncio import QueueEmpty
+from pyrogram import Client, filters
+from pyrogram.types import Message, Audio, Voice
+from Music import app
+from Music.MusicUtilities.helpers.decorators import errors
+from Music.MusicUtilities.helpers.filters import command, other_filters
+from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
+from pyrogram.types import (
+    CallbackQuery,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InputMediaPhoto,
+    Message,
+)
+import os
+import yt_dlp
+from youtubesearchpython import VideosSearch
+from os import path
+import random
+import asyncio
+import shutil
+from time import time
+import time as sedtime
+from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
+from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
+from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
+from pyrogram.types import Message
+from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
+from Music.MusicUtilities.helpers.thumbnails import gen_thumb
+from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
+from Music.MusicUtilities.helpers.ytdl import ytdl_opts 
+from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup, play_markup, playlist_markup, audio_markup)
+from Music.MusicUtilities.tgcallsrun import (convert, download)
+from pyrogram import filters
+from typing import Union
+from youtubesearchpython import VideosSearch
+from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
+
+flex = {}
+
+async def member_permissions(chat_id: int, user_id: int):
+    perms = []
+    member = await app.get_chat_member(chat_id, user_id)
+    if member.can_manage_voice_chats:
+        perms.append("can_manage_voice_chats")
+    return perms
+
+
 @app.on_message(filters.command("cleandb"))
 async def stop_cmd(_, message): 
     chat_id = message.chat.id
