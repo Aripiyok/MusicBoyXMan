@@ -50,7 +50,6 @@ from pyrogram.types import Message, Audio, Voice
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message)
 flex = {}
 
-chat_id = None
 DISABLED_GROUPS = []
 useer = "NaN"
 
