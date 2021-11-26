@@ -20,12 +20,13 @@ Disk: {disk}%'''
     return stats
 
 
-@app.on_message(filters.command(["ping", "ping@Tg_Vc_00_Bot"]))
+@app.on_message(filters.command(["pingmusic", "ping@Tg_Vc_00_Bot"]))
 async def ping(_, message):
     uptime = await bot_sys_stats()
     start = datetime.now()
-    response = await message.reply_caption(
-        caption=">> Pong!",
+    response = await message.reply_photo(
+        photo="https://telegra.ph/file/85f3534a019ba681377bd.png",
+        caption=">> Pong!"
     )
     end = datetime.now()
     resp = (end - start).microseconds / 1000
