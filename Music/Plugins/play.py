@@ -78,7 +78,7 @@ Client.on_message(
     & ~filters.bot
     & ~filters.private
 )
-
+@adminsOnly
 async def music_onoff(_, message):
     permission = "can_manage_voice_chats"
     m = await adminsOnly(permission, message)
