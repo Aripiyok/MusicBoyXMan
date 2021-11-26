@@ -20,7 +20,7 @@ Disk: {disk}%'''
     return stats
 
 
-@app.on_message(filters.command(["pingmusic", "ping@Tg_Vc_00_Bot"]))
+@app.on_message(filters.command(["ping", "ping@Tg_Vc_00_Bot"]))
 async def ping(_, message):
     uptime = await bot_sys_stats()
     start = datetime.now()
@@ -30,4 +30,4 @@ async def ping(_, message):
     )
     end = datetime.now()
     resp = (end - start).microseconds / 1000
-    await response.edit_text(f"**Pong!**\n`⚡{resp} ms`\n\n<b><u>Music System Stats:</u></b>{uptime}")
+    await response.edit_text(f"✅**__Pong!__**\n`⚡{resp} ms`\n\n<b><u>**__Music System Stats:__**</u></b>{uptime}")
