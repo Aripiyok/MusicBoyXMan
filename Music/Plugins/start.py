@@ -18,7 +18,7 @@ from Music.MusicUtilities.database.chats import (get_served_chats, is_served_cha
 from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
 from Music.MusicUtilities.database.sudo import (get_sudoers, get_sudoers, remove_sudo)
         
-@Client.on_message(filters.private & filters.incoming & filters.command("start"))
+@Client.on_message(filters.private & filters.incoming & filters.command("st"))
 async def play(_, message: Message):
     if len(message.command) == 1:
         user_id = message.from_user.id
