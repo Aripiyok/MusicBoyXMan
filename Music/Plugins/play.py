@@ -116,7 +116,7 @@ async def music_onoff(_, message):
 
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]))
 async def play(_, message: Message):
-    if message.chat.id in DISABLE_GROUPS:
+    if message.chat.id in DISABLED_GROUPS:
         return
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
