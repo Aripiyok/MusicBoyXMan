@@ -78,6 +78,7 @@ Client.on_message(
     & ~filters.bot
     & ~filters.private
 )
+@authorized_users_only
 async def music_onoff(_, message):
     global DISABLED_GROUPS
     try:
