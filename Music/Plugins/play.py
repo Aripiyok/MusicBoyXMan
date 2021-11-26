@@ -48,6 +48,12 @@ from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import Message, Audio, Voice
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message)
 flex = {}
+
+chat_id = None
+DISABLED_GROUPS = []
+useer = "NaN"
+
+
 chat_watcher_group = 3
 def time_to_seconds(time):
     stringt = str(time)
@@ -66,9 +72,52 @@ def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":"))))
 
+Client.on_message(
+    command(["music", f"music@{BOT_USERNAME}"])
+    & ~filters.edited
+    & ~filters.bot
+    & ~filters.private
+)
+async def music_onoff(_, message):
+    global DISABLED_GROUPS
+    try:
+        message.from_user.id
+    except:
+        return
+    if len(message.command) != 2:
+        await message.reply_text(
+            "**• usage:**\n\n `/music on` & `/music off`"
+        )
+        return
+    status = message.text.split(None, 1)[1]
+    message.chat.id
+    if status in ("ON", "on", "On"):
+        lel = await message.reply("`processing...`")
+        if not message.chat.id in DISABLED_GROUPS:
+            await lel.edit("» **music player already turned on.**")
+            return
+        DISABLED_GROUPS.remove(message.chat.id)
+        await lel.edit(f"✅ **music player turned on**\n\n💬 `{message.chat.id}`")
+
+    elif status in ("OFF", "off", "Off"):
+        lel = await message.reply("`processing...`")
+
+        if message.chat.id in DISABLED_GROUPS:
+            await lel.edit("» **music player already turned off.**")
+            return
+        DISABLED_GROUPS.append(message.chat.id)
+        await lel.edit(f"✅ **music player turned off**\n\n💬 `{message.chat.id}`")
+    else:
+        await message.reply_text(
+            "**• usage:**\n\n `/music on` & `/music off`"
+        )
+
+
+
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]))
 async def play(_, message: Message):
-    chat_id = message.chat.id
+    if message.chat.id in DISABLE_GROUPS:
+        return
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account From Admin Rights.")  
     user_id = message.from_user.id
