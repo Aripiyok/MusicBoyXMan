@@ -75,6 +75,7 @@ def time_to_seconds(time):
 
 @app.on_message(command(["music", f"music@{BOT_USERNAME}"])& ~filters.edited & ~filters.bot & ~filters.private)
 async def music_onoff(_, message: Message):
+    await message.delete()
     permission = "can_manage_voice_chats"
     m = await adminsOnly(permission, message)
     if m == 1:
@@ -120,6 +121,7 @@ async def music_onoff(_, message: Message):
 
 @Client.on_message(command(["play", f"play@{BOT_USERNAME}"]))
 async def play(_, message: Message):
+    await message.delete()
     if message.chat.id in DISABLED_GROUPS:
         return
     if message.sender_chat:
