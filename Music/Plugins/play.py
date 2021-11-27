@@ -169,22 +169,24 @@ async def play(_, message: Message):
         if message.chat.username:
             try: 
                 await ASS_ACC.join_chat(f"{message.chat.username}")
-                await message.reply(f"{ASSNAME} Joined Successfully",) 
+                await message.reply(f"{ASSNAME} **__Berhasil Bergabung Di Group__**",) 
                 await remove_active_chat(chat_id)
             except Exception as e:
-                await message.reply_text(f"__**Assistant Failed To Join**__\n\n**Reason**:{e}")
+                await message.reply_text(f"__**Assistant Gagal bergabung di Group**__\n\n**Reason**:{e}")
                 return
         else:
             try:
-                xxy = await app.export_chat_invite_link(message.chat.id)
-                yxy = await app.revoke_chat_invite_link(message.chat.id, xxy)
-                await ASS_ACC.join_chat(yxy.invite_link)
-                await message.reply(f"{ASSNAME} Joined Successfully",) 
-                await remove_active_chat(chat_id)
+                try:
+                    invite_link = await message.chat.export_invite_link()
+                    if "+" in invite_link:
+                        link_hash = (invite_link.replace("+", "")).split("t.me/")[1]
+                        await ASS_ACC.join_chat(f"https://t.me/joinchat/{link_hash}")
+                    return await message.reply(f"{ASSNAME} **__berhasil bergabung di Group__**",) 
+                    await remove_active_chat(chat_id)
             except UserAlreadyParticipant:
                 pass
             except Exception as e:
-                return await message.reply_text(f"__**Assistant Failed To Join**__\n\n**Reason**:{e}")       
+                return await message.reply_text(f"__**Assistant Gagal Bergabung di Group**__\n\n**Reason**:{e}")       
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
     url = get_url(message)
  #  await message.delete()
