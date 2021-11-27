@@ -176,13 +176,12 @@ async def play(_, message: Message):
                 return
         else:
             try:
-                try:
-                    invite_link = await message.chat.export_invite_link()
-                    if "+" in invite_link:
-                        link_hash = (invite_link.replace("+", "")).split("t.me/")[1]
-                        await ASS_ACC.join_chat(f"https://t.me/joinchat/{link_hash}")
-                    return await message.reply(f"{ASSNAME} **__berhasil bergabung di Group__**",) 
-                    await remove_active_chat(chat_id)
+                invite_link = await message.chat.export_invite_link()
+                if "+" in invite_link:
+                    link_hash = (invite_link.replace("+", "")).split("t.me/")[1]
+                    await ASS_ACC.join_chat(f"https://t.me/joinchat/{link_hash}")
+                return await message.reply(f"{ASSNAME} **Berhasil Bergabung Di Group__**",) 
+                await remove_active_chat(chat_id)
             except UserAlreadyParticipant:
                 pass
             except Exception as e:
