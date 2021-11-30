@@ -15,3 +15,7 @@ SUDO_USERS = list(map(int, getenv('SUDO_USERS', '').split()))
 LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", '-1001429892362'))
 ASS_ID = int(getenv("ASS_ID", '1446583656'))
 OWNER_ID = list(map(int, getenv('OWNER_ID', '').split()))
+MUST_JOIN = getenv("MUST_JOIN", None)
+if MUST_JOIN.startswith("@"):
+    MUST_JOIN = MUST_JOIN.replace("@", "")
+
