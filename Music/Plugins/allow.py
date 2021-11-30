@@ -66,6 +66,4 @@ async def blacklist_chat_func(_, message: Message):
     chat_id = message.chat.id
     if not await is_served_chat(chat_id):
         await add_served_chat(chat_id)
-        await message.reply_text("GROUP INI TELAH DI TAMBAHKAN KE DATABASE")
-    else:
-        await message.reply_text("GROUP INI TELAH ADA DI DATABASE")
+        
