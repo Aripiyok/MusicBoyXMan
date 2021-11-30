@@ -49,6 +49,9 @@ from youtubesearchpython import VideosSearch
 from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import Message, Audio, Voice
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message)
+from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
+from Music.config import MUST_JOIN
+
 flex = {}
 
 DISABLED_GROUPS = []
@@ -160,6 +163,33 @@ async def play(_, message: Message):
         "I don't have the required permission to perform this action."
         + "\n\n» ❌ **__Ban users__**")
         return
+    user_id = message.from_user.id
+    user_name = message.from_user.first_name
+    rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
+    if not MUST_JOIN:  # Not compulsory
+        return
+    try:
+        try:
+            await app.get_chat_member(MUST_JOIN, message.from_user.id)
+        except UserNotParticipant:
+            if MUST_JOIN.isalpha():
+                link = "https://t.me/" + MUST_JOIN
+            else:
+                chat_info = await app.get_chat(MUST_JOIN)
+                link = chat_info.invite_link
+            try:
+                await message.reply(
+                    f"**Hay {rpk} Untuk menghindari penggunaan yang berlebihan bot ini di khususkan untuk yang sudah join di group kami!**",
+                    disable_web_page_preview=True,
+                    reply_markup=InlineKeyboardMarkup(
+                        [[InlineKeyboardButton("✨ Join Channel ✨", url=link)]]
+                    ),
+                )
+                await message.stop_propagation()
+            except ChatWriteForbidden:
+                pass
+    except ChatAdminRequired:
+        print(f"Saya bukan admin di chat MUST_JOIN chat : {MUST_JOIN} !")
     try:
         b = await app.get_chat_member(message.chat.id , ASSID) 
         if b.status == "kicked":
