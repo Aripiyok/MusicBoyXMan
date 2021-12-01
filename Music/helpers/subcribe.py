@@ -34,5 +34,7 @@ def subcribe(func):
                     pass
         except ChatAdminRequired:
             print(f"Saya bukan admin di chat MUST_JOIN chat : {MUST_JOIN} !")
+        return await func(_, message)
 
     return wrapper
+        
