@@ -2,6 +2,7 @@ from asyncio import QueueEmpty
 from pyrogram import Client, filters
 from pyrogram.types import Message, Audio, Voice
 from Music import app
+from Music.helpers.subcribe import subcribe
 from Music.MusicUtilities.helpers.decorators import errors
 from Music.MusicUtilities.helpers.filters import command, other_filters
 from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
@@ -62,6 +63,7 @@ async def stop_cmd(_, message):
     await message.reply_text("Erased Databae, Queues, Logs, Raw Files, Downloads.")
     
 @app.on_message(filters.command("pause"))
+@subceibe
 async def pause_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account.") 
@@ -80,6 +82,7 @@ async def pause_cmd(_, message):
     await message.reply_text(f"🎧 Voicechat Paused by {checking}!")
     
 @app.on_message(filters.command("resume"))
+@subcribe
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account.") 
@@ -99,6 +102,7 @@ async def stop_cmd(_, message):
         await message.reply_text(f"🎧 Voicechat Resumed by {checking}!")
 
 @app.on_message(filters.command(["stop", "end"]))
+@subcribe
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account.") 
@@ -120,6 +124,7 @@ async def stop_cmd(_, message):
         return await message.reply_text("I dont think if something's playing on voice chat")
     
 @app.on_message(filters.command("skip"))
+@subcribe
 async def stop_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account.") 
