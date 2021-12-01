@@ -63,7 +63,7 @@ async def stop_cmd(_, message):
     await message.reply_text("Erased Databae, Queues, Logs, Raw Files, Downloads.")
     
 @app.on_message(filters.command("pause"))
-@subceibe
+@subcribe
 async def pause_cmd(_, message): 
     if message.sender_chat:
         return await message.reply_text("You're an __Anonymous Admin__!\nRevert back to User Account.") 
