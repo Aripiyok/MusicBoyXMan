@@ -6,6 +6,7 @@ import psutil
 import time
 from datetime import datetime
 from Music.MusicUtilities.helpers.time import get_readable_time
+from Music.helpers.subcribe import subcribe
 
 async def bot_sys_stats():
     bot_uptime = int(time.time() - Music_START_TIME)
@@ -21,6 +22,7 @@ Disk: {disk}%'''
 
 
 @app.on_message(filters.command(["ping", "ping@Tg_Vc_00_Bot"]))
+@subcribe
 async def ping(_, message):
     uptime = await bot_sys_stats()
     start = datetime.now()
