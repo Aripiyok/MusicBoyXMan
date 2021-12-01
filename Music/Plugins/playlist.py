@@ -33,12 +33,13 @@ from typing import Union
 from youtubesearchpython import VideosSearch
 from pyrogram.types import Message, Audio, Voice
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message, )
-
+from Music.helpers.subcribe import subcribe
 
 options = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "all","16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",]   
 
 
 @app.on_message(filters.command("playlist"))
+@subcribe
 async def pause_cmd(_, message):
     thumb ="cache/Playlist.png"
     await message.reply_photo(
@@ -49,6 +50,7 @@ async def pause_cmd(_, message):
 
 
 @app.on_message(filters.command("delmyplaylist"))
+@subcribe
 async def pause_cmd(_, message):
     usage = ("Usage:\n\n/delmyplaylist [Numbers between 1-30] ( to delete a particular music in playlist )\n\nor\n\n /delmyplaylist all ( to delete whole playlist )")
     if len(message.command) < 2:
@@ -81,6 +83,7 @@ async def pause_cmd(_, message):
 
         
 @app.on_message(filters.command("delgroupplaylist"))
+@subcribe
 async def delgroupplaylist(_, message):
     a = await app.get_chat_member(message.chat.id , message.from_user.id)
     if not a.can_manage_voice_chats:
