@@ -1,4 +1,3 @@
-
 from pyrogram.errors import ChatAdminRequired, ChatWriteForbidden, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
@@ -24,12 +23,12 @@ def subcribe(func):
                     link = chat_info.invite_link
                 try:
                     await message.reply(
-                    f"**Hy kak** {rpk} **__Untuk menghindari penggunaan yang berlebihan bot ini di khususkan untuk yang sudah join di channel kami!__**",
-                    disable_web_page_preview=True,
-                    reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("•• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ •• ", url=link)]]
-                     ),
-                    )
+                        f"**Hy kak** {rpk} **__Untuk menghindari penggunaan yang berlebihan bot ini di khususkan untuk yang sudah join di channel kami!__**",
+                        disable_web_page_preview=True,
+                        reply_markup=InlineKeyboardMarkup(
+                               [[InlineKeyboardButton("•• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ •• ", url=link)]]
+                    ),
+                )
                     await message.stop_propagation()
                 except ChatWriteForbidden:
                     pass
