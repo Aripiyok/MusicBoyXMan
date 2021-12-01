@@ -179,7 +179,7 @@ async def play(_, message: Message):
                 link = chat_info.invite_link
             try:
                 await message.reply(
-                    f"**Hy i am** {rpk} **__Untuk menghindari penggunaan yang berlebihan bot ini di khususkan untuk yang sudah join di channel kami!__**",
+                    f"__**Hy kak**__ {rpk} **__Untuk menghindari penggunaan yang berlebihan bot ini di khususkan untuk yang sudah join di channel kami!__**",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(
                         [[InlineKeyboardButton("•• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ •• ", url=link)]]
