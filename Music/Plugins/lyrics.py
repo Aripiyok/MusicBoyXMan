@@ -7,6 +7,7 @@ from pyrogram.types import (
     InputMediaAudio,
     Message,
 )
+from Music.helpers.subcribe import subcribe
 from Music import app
 from pyrogram import Client, filters
 from youtubesearchpython import VideosSearch
@@ -57,6 +58,7 @@ async def lyricssex(_,CallbackQuery):
     
     
 @Client.on_message(filters.command("lyrics"))
+@subcribe
 async def lrsearch(_, message: Message):  
     m = await message.reply_text("Searching Lyrics")
     query = message.text.split(None, 1)[1]
