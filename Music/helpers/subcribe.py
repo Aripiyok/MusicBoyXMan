@@ -23,18 +23,19 @@ def subcribe(func):
                     link = chat_info.invite_link
                 try:
                     await message.reply(
-                        f"**Hy kak** {rpk} **__Untuk menghindari penggunaan yang berlebihan bot ini di khususkan untuk yang sudah join di channel kami!__**",
+                        f"**Hay {rpk} Untuk menghindari penggunaan yang berlebihan bot ini di khususkan untuk yang sudah join di group kami!**",
                         disable_web_page_preview=True,
                         reply_markup=InlineKeyboardMarkup(
-                               [[InlineKeyboardButton("•• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ •• ", url=link)]]
-                    ),
-                )
+                            [[InlineKeyboardButton("•• ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ••", url=link)]]
+                        ),
+                    )
                     await message.stop_propagation()
                 except ChatWriteForbidden:
                     pass
         except ChatAdminRequired:
-            print(f"Saya bukan admin di chat MUST_JOIN chat : {MUST_JOIN} !")
+            await message.reply(
+                f"Saya bukan admin di chat MUST_JOIN chat : {MUST_JOIN} !"
+            )
         return await func(_, message)
 
     return wrapper
-        
