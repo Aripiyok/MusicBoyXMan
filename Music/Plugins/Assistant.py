@@ -9,7 +9,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from Music import SUDOERS, app, db_mem,
-from Music.MusicUtilities.tgcallsrun.music import ASS_ACC as userbot
+from Music.MusicUtilities.tgcallsrun.music import smexy as userbot
 from Music.MusicUtilities.database.queue import get_active_chats, is_active_chat
 
 
