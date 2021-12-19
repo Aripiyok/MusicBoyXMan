@@ -339,7 +339,7 @@ async def play(_, message: Message):
                 mystic.edit(f"**Downloaded {title[:50]}.....**\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]")
                 print(f"[{videoid}] Downloaded| Elapsed: {taken} seconds")  
         loop = asyncio.get_event_loop()
-        x = await loop.run_in_executor(None, download, link)
+        x = await loop.run_in_executor(None, download, link, my_hook)
         file = await convert(x)
     else:
         if len(message.command) < 2:
@@ -536,7 +536,7 @@ async def startyuplay(_,CallbackQuery):
             mystic.edit(f"**Downloaded {title[:50]}.....**\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]")
             print(f"[{videoid}] Downloaded| Elapsed: {taken} seconds")    
     loop = asyncio.get_event_loop()
-    x = await loop.run_in_executor(None, download, url)
+    x = await loop.run_in_executor(None, download, url, my_hook)
     file = await convert(x)
     theme = random.choice(themes)
     ctitle = CallbackQuery.message.chat.title
