@@ -4,13 +4,13 @@ asyncio
 ffmpeg-python
 pillow
 pyrogram
-py-tgcalls==0.8.2
+py-tgcalls
 pytube
 wget
 python-dotenv
 search-engine-parser
 tgcrypto
-youtube-search-python==1.4.9
+youtube-search-python
 youtube-search
 speedtest-cli
 cryptography
