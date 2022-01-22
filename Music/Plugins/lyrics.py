@@ -57,10 +57,10 @@ async def lyricssex(_,CallbackQuery):
     await CallbackQuery.message.reply_text(xxx)
     
     
-@Client.on_message(filters.command("lyrics"))
+@Client.on_message(filters.command("lyric"))
 @subcribe
 async def lrsearch(_, message: Message):  
-    m = await message.reply_text("Searching Lyrics")
+    m = await message.reply_text("Searching Lyric")
     query = message.text.split(None, 1)[1]
     x = "OXaVabSRKQLqwpiYOn-E4Y7k3wj-TNdL5RfDPXlnXhCErbcqVvdCF-WnMR5TBctI"
     y = lyricsgenius.Genius(x)
